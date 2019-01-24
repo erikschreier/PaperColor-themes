@@ -1,0 +1,20 @@
+"==============================================================================
+" ~/.vim/.vimrc.keymaps
+"------------------------------------------------------------------------------
+" Author: Erik Schreier
+" Date:   Jan. 24 2019
+"==============================================================================
+let mapleader=" "
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+nnoremap <space> za
+
+nmap <Leader><CR> :nohlsearch<cr>
+
+map <leader>q :NERDTreeToggle<CR>
+
+ino jj <esc>
+cno jj <c-c>
+vno v  <esc>

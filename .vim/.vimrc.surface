@@ -1,0 +1,77 @@
+"==============================================================================
+" ~/.vim/.vimrc.surface
+"------------------------------------------------------------------------------
+" Author: Erik Schreier
+" Date:   Jan. 24 2019
+"==============================================================================
+set t_Co=256
+set background=dark
+let g:PaperColor_Theme_Options = {
+            \ 'theme': {
+            \   'default': {
+            \       'transparent_background': 1,
+            \       'allow_bold': 1
+            \}
+            \},
+            \ 'language': {
+            \   'python': {
+            \       'highlight_builtins': 1
+            \},
+            \   'cpp': {
+            \       'highlight_standard_library': 1
+            \},
+            \   'c': {
+            \       'highlight_builtins': 1
+            \}
+            \}
+            \}
+colorscheme PaperColor
+"------------------------------------------------------------------------------
+" Statusbar by meskarune
+"------------------------------------------------------------------------------ 
+au InsertEnter * hi statusline ctermfg=214 ctermbg=none
+au InsertLeave * hi statusline ctermfg=148 ctermbg=none
+                 hi statusline ctermfg=148 ctermbg=none
+
+let g:currentmode={
+    \ 'n'  : 'Normal',
+    \ 'no' : 'Normal·Operator Pending',
+    \ 'v'  : 'Visual',
+    \ 'V'  : 'V·Line',
+    \ '^V' : 'V·Block',
+    \ 's'  : 'Select',
+    \ 'S'  : 'S·Line',
+    \ '^S' : 'S·Block',
+    \ 'i'  : 'Insert',
+    \ 'R'  : 'Replace',
+    \ 'Rv' : 'V·Replace',
+    \ 'c'  : 'Command',
+    \ 'cv' : 'Vim Ex',
+    \ 'ce' : 'Ex',
+    \ 'r'  : 'Prompt',
+    \ 'rm' : 'More',
+    \ 'r?' : 'Confirm',
+    \ '!'  : 'Shell',
+    \ 't'  : 'Terminal'
+    \}
+
+set laststatus=2
+set noshowmode
+set statusline=
+set statusline+=%0*\ %n\                                 " Buffer number
+set statusline+=%1*\ %<%F%m%r%h%w\                       " File path, modified, readonly, helpfile, preview
+set statusline+=%3*|                                     " Separator
+set statusline+=%2*\ %Y\                                 " FileType
+set statusline+=%3*|                                     " Separator
+set statusline+=%2*\ %{''.(&fenc!=''?&fenc:&enc).''}     " Encoding
+set statusline+=\ (%{&ff})\                              " FileFormat (dos/unix..)
+set statusline+=%=                                       " Right Side
+set statusline+=%2*\ col:\ %02v\                         " Colomn number
+set statusline+=%3*|                                     " Separator
+set statusline+=%1*\ ln:\ %02l/%L\ (%3p%%)\              " Line number / total lines, percentage of document
+set statusline+=%0*\ %{toupper(g:currentmode[mode()])}\  " The current mode
+
+hi User1 ctermfg=243 ctermbg=235
+hi User2 ctermfg=240 ctermbg=234
+hi User3 ctermfg=240 ctermbg=234
+hi User4 ctermfg=240 ctermbg=234

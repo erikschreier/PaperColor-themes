@@ -1,0 +1,31 @@
+"==============================================================================
+" ~/.vim/.vimrc.plugins
+"------------------------------------------------------------------------------
+" Author: Erik Schreier
+" Date:   Jan. 24 2019
+"==============================================================================
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+"-----------------------------------------
+Plugin 'scrooloose/nerdtree'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-surround'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'ervandew/supertab'
+"-----------------------------------------
+Plugin 'sheerun/vim-polyglot'
+Plugin 'vim-syntastic/syntastic'
+"-----------------------------------------
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'nvie/vim-flake8'
+"-----------------------------------------
+Plugin 'rust-lang/rust.vim'
+"-----------------------------------------
+Plugin 'NLKNguyen/papercolor-theme'
+call vundle#end()
+
