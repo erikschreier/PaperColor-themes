@@ -1,9 +1,20 @@
-This repo contains basic settings to work on most Terminal-Emulators with 256-Color Support. Its tested on Raspbian Stretch and the termux App for Android. To work on all platforms there no plugins or escapes, so it should run on Mac-OS as well. You wont need any Powerline Fonts.
+<a href="http://tinypic.com?ref=30cpu9f" target="_blank"><img src="http://i65.tinypic.com/30cpu9f.png" border="0" alt="Image and video hosting by TinyPic"></a>
 
-To Use the zsh-shell Theme you will have to install oh-my-zsh and set it as theme in the .zshrc, to use the Vim configs you have to install the Vundle Plugin Manager. The tmux settings are standalone.
+Its just a basic but well designed compilation of themes and settings for vim/tmux/zsh, its perfect for longer codingsessions in any 256 Color terminal. There are no special characters or escapes so it should work in any unix or macos terminal.
 
-Vim-Setup, contains basic Plugins and settings for Coding in Python and Rust, the colorscheme is PaperColor with transparent BG and optimized settings for Python and C, the Statusbar is created by mescarune and modified to fit for PaperColor.
+To use the Vim and Zsh Part you will need to download the Repos for .oh-my-zsh and Vundle.
 
-Tmux-Setup, provides nice Keybinds for Vim users to switch between tabs and panes, some neccessary settings, nothing special and a surface to fit for the PaperColor Vim theme. You only see what you realy need to see.
+https://github.com/robbyrussell/oh-my-zsh
+https://github.com/VundleVim/Vundle.vim
 
-Zsh-Setup, is a very basic prompt with git support, theres only the current working directory and the git info shown, the colors fit to the PaperColor Theme too.
+The Plugins chosen for Vim are very basic, including some new functions (NERDTree) a colorscheme (PaperColor) and some nice Plugins for genearal Coding in any Language (syntastic etc.) The Statusbar is part of the .vimrc.surface file and works withouth plugins thats cause most of the Plugins for statusbars are laggy.
+
+Keybind imporvements: STRG + h, j, k, l to move between splits inside of vim, j + j to leave insert-mode, Space + Return to disable search highlights.
+
+The tmux theme works withouth any plugins, the colors are aliased at the beginning of the .tmux.conf.surface file so you can easyly add other funktions to the statusbar.
+
+Keybind improvements: ALT + h, j, k, l to move between slits inside of tmux, ALT + 1 .. 9 to switch between windows, ALT + Arrow keys to resize splits
+
+The zsh theme is very basic but fits nice into the tmux window, it uses the PaperColor colors as well. It supports a indocator to highlight errors and a basical git status to see dirty, clean status and the git branch name.
+
+Youre free to use and modify the Parts of the setup for own purpose or share it for free (you have to add a link to the original repo). Youre not alowed to use the repo or any part of it in any commercial way (youre free to ask)!
