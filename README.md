@@ -16,5 +16,3 @@ The tmux theme works withouth any plugins, the colors are aliased at the beginni
 Keybind improvements: ALT + h, j, k, l to move between slits inside of tmux, ALT + 1 .. 9 to switch between windows, ALT + Arrow keys to resize splits
 
 The zsh theme is very basic but fits nice into the tmux window, it uses the PaperColor colors as well. It supports a indocator to highlight errors and a basical git status to see dirty, clean status and the git branch name.
-
-Youre free to use and modify the Parts of the setup for own purpose or share it for free (you have to add a link to the original repo). Youre not alowed to use the repo or any part of it in any commercial way (youre free to ask)!
