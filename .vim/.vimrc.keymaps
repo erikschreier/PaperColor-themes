@@ -1,20 +1,53 @@
 "==============================================================================
-" ~/.vim/.vimrc.keymaps
+" Keymaps
 "------------------------------------------------------------------------------
-" Author: Erik Schreier
-" Date:   Jan. 24 2019
+" Author:  Erik Schreier
+" Version: 1.1 (Feb. 06 2019)
+" Path:    ~/.vim/.vimrc.keymaps
+"------------------------------------------------------------------------------
+" Changes in 1.1:
+" + comments for better documentation
+" + vim force expert movement (disabled by default)
+"------------------------------------------------------------------------------
+" Vim expert mode:
+"   Thats the way you should use vim, it disables the arrow keys and force you
+"   to move around with h, j, k, l. To enable it just uncomment L28 to L35.
 "==============================================================================
-let mapleader=" "
+"
+let mapleader=" "                                " use <space> as leader
+
+" Move between splits using <STRG> + h, j, k, l inside of vim
+"
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-nnoremap <space> za
 
-nmap <Leader><CR> :nohlsearch<cr>
+" Force to use h, j, k, l to move the cursor by disabling arrow-keys
+"
+"inoremap <Up>    <NOP>
+"inoremap <Down>  <NOP>
+"inoremap <Left>  <NOP>
+"inoremap <Right> <NOP>
+"noremap  <Up>    <NOP>
+"noremap  <Down>  <NOP>
+"noremap  <Left>  <NOP>
+"noremap  <Right> <NOP>
 
-map <leader>q :NERDTreeToggle<CR>
-
+" Use j + j to leave visual or insert mode, works like <ESC> key.
+"
 ino jj <esc>
 cno jj <c-c>
 vno v  <esc>
+
+" Use <space> inside a block to fold, unfold it withouth any command
+"
+nnoremap <space> za
+
+" <SPACE> + <RETURN> to disable searchhighlights (no need for /yzzwqyz ;)
+"
+nmap <leader><cr> :nohlsearch<cr>
+
+" Toggle filebrowser using <SPACE> + q
+"
+map  <leader>q :NERDTreeToggle<cr>

@@ -1,38 +1,60 @@
 "==============================================================================
-" ~/.vim/.vimrc.surface
+" Colorscheme
 "------------------------------------------------------------------------------
-" Author: Erik Schreier
-" Date:   Jan. 24 2019
+" Author:  Erik Schreier
+" Version: 1.0 (Jan. 24 2019)
+" Path:    ~/.vim/.vimrc.surface
 "==============================================================================
+"
 set t_Co=256
 set background=dark
 let g:PaperColor_Theme_Options = {
-            \ 'theme': {
-            \   'default': {
-            \       'transparent_background': 1,
-            \       'allow_bold': 1
-            \}
-            \},
-            \ 'language': {
-            \   'python': {
-            \       'highlight_builtins': 1
-            \},
-            \   'cpp': {
-            \       'highlight_standard_library': 1
-            \},
-            \   'c': {
-            \       'highlight_builtins': 1
-            \}
-            \}
-            \}
+	    \ 'theme': {
+	    \   'default': {
+	    \       'transparent_background': 1,
+	    \       'allow_bold': 1
+	    \}
+	    \},
+	    \ 'language': {
+	    \   'python': {
+	    \       'highlight_builtins': 1
+	    \},
+	    \   'cpp': {
+	    \       'highlight_standard_library': 1
+	    \},
+	    \   'c': {
+	    \       'highlight_builtins': 1
+	    \}
+	    \}
+	    \}
+
 colorscheme PaperColor
+"==============================================================================
+" Statusbar
 "------------------------------------------------------------------------------
-" Statusbar by meskarune
-"------------------------------------------------------------------------------ 
-au InsertEnter * hi statusline ctermfg=214 ctermbg=none
+" Author:  meskarune (https://gist.github.com/meskarune
+" Editor:  Erik Schreier
+" Version: 1.1 (Feb. 06 2019)
+" Path:    ~/.vim/.vimrc.surface
+"------------------------------------------------------------------------------
+" Changes in 1.1:
+" + comments for better documentation
+" + color correction:
+"   ~ insertmode now uses orange (208) instead of yellow (218)
+"   ~ statusbar now has a better black and grey design
+"------------------------------------------------------------------------------
+" Modified to use PaperColor instead of Jellybeans colorscheme, removed the
+" GUI support (still works but looks worse).
+"==============================================================================
+"
+" Highlight buffer index and mode in green (normal) or orange(insert)
+"
+au InsertEnter * hi statusline ctermfg=208 ctermbg=none
 au InsertLeave * hi statusline ctermfg=148 ctermbg=none
                  hi statusline ctermfg=148 ctermbg=none
 
+" convert mode keywords in human readable text
+"
 let g:currentmode={
     \ 'n'  : 'Normal',
     \ 'no' : 'Normal·Operator Pending',
@@ -55,23 +77,27 @@ let g:currentmode={
     \ 't'  : 'Terminal'
     \}
 
-set laststatus=2
+" create and format the statusbar to look nice
+" ! Dont remove trailing whitespaces !
+"
 set noshowmode
 set statusline=
-set statusline+=%0*\ %n\                                 " Buffer number
-set statusline+=%1*\ %<%F%m%r%h%w\                       " File path, modified, readonly, helpfile, preview
-set statusline+=%3*|                                     " Separator
-set statusline+=%2*\ %Y\                                 " FileType
-set statusline+=%3*|                                     " Separator
-set statusline+=%2*\ %{''.(&fenc!=''?&fenc:&enc).''}     " Encoding
-set statusline+=\ (%{&ff})\                              " FileFormat (dos/unix..)
-set statusline+=%=                                       " Right Side
-set statusline+=%2*\ col:\ %02v\                         " Colomn number
-set statusline+=%3*|                                     " Separator
-set statusline+=%1*\ ln:\ %02l/%L\ (%3p%%)\              " Line number / total lines, percentage of document
-set statusline+=%0*\ %{toupper(g:currentmode[mode()])}\  " The current mode
+set statusline+=%0*\ %n\                                 " number of buffer
+set statusline+=%1*\ %<%F%m%r%h%w\                       " path and status
+set statusline+=%3*|                                     " SEPARATOR
+set statusline+=%2*\ %Y\                                 " filetype
+set statusline+=%3*|                                     " SEPARATOR
+set statusline+=%2*\ %{''.(&fenc!=''?&fenc:&enc).''}     " encoding
+set statusline+=\ (%{&ff})\                              " format
+set statusline+=%=                                       " SPACER
+set statusline+=%2*\ col:\ %02v\                         " column
+set statusline+=%3*|                                     " SEPARATOR
+set statusline+=%1*\ ln:\ %02l/%L\ (%3p%%)\              " line and position
+set statusline+=%0*\ %{toupper(g:currentmode[mode()])}\  " current mode
 
-hi User1 ctermfg=243 ctermbg=235
-hi User2 ctermfg=240 ctermbg=234
-hi User3 ctermfg=240 ctermbg=234
-hi User4 ctermfg=240 ctermbg=234
+" Coloring for the center part of the statusbar
+"
+hi User1 ctermfg=246 ctermbg=236
+hi User2 ctermfg=244 ctermbg=234
+hi User3 ctermfg=244 ctermbg=234
+hi User4 ctermfg=244 ctermbg=234

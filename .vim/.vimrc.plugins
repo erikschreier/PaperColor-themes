@@ -1,31 +1,43 @@
 "==============================================================================
-" ~/.vim/.vimrc.plugins
+" Plugins
 "------------------------------------------------------------------------------
-" Author: Erik Schreier
-" Date:   Jan. 24 2019
+" Author:  Erik Schreier
+" Version: 1.1 (Feb, 06 2019)
+" Path:    ~/.vim/.vimrc.plugins
+"------------------------------------------------------------------------------
+" Changes 1.1:
+" + comments for better documentation
+" + plugins for codesnipets
+" + plugin for git support
+" + support for ruby and rails
+"------------------------------------------------------------------------------
+" use Vundle Plugin manager to use (https://github.com/VundleVim/Vundle.vim)
+"
+" run $vim +PluginInstall from your commandline to get the plugins running
 "==============================================================================
+"
 set nocompatible
 filetype off
-
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-"-----------------------------------------
-Plugin 'scrooloose/nerdtree'
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'tpope/vim-surround'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'ervandew/supertab'
-"-----------------------------------------
-Plugin 'sheerun/vim-polyglot'
-Plugin 'vim-syntastic/syntastic'
-"-----------------------------------------
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'nvie/vim-flake8'
-"-----------------------------------------
-Plugin 'rust-lang/rust.vim'
-"-----------------------------------------
-Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'VundleVim/Vundle.vim'                    " Pluginmanager !DONT REMOVE!
+Plugin 'scrooloose/nerdtree'                     " filebrowser (sidebar)
+Plugin 'jiangmiao/auto-pairs'                    " autocomplete parentheses
+Plugin 'tmhedberg/SimpylFold'                    " improves codefolding
+Plugin 'tomtom/tcomment_vim'                     " comment/uncomment quick
+Plugin 'tpope/vim-surround'                      " surround your code quick
+Plugin 'ervandew/supertab'                       " autocompletion (<TAB>)
+Plugin 'tpope/vim-fugitive'                      " git integration
+Plugin 'MarcWeber/vim-addon-mw-utils'            " snipets for various lang.
+Plugin 'tomtom/tlib_vim'                         " 
+Plugin 'honza/vim-snippets'                      " 
+Plugin 'garbas/vim-snipmate'                     " 
+Plugin 'scrooloose/syntastic'                    " spellchecking for most lang.
+Plugin 'sheerun/vim-polyglot'                    " improves syntaxhighlighting
+Plugin 'vim-scripts/indentpython.vim'            " avoid indent problems (py)
+Plugin 'nvie/vim-flake8'                         " warning for pep8 problems
+Plugin 'vim-ruby/vim-ruby'                       " ruby integration
+Plugin 'tpope/vim-rails.git'                     " rails integration
+Plugin 'rust-lang/rust.vim'                      " rust integration
+Plugin 'NLKNguyen/papercolor-theme'              " Colorscheme
 call vundle#end()
-

@@ -1,34 +1,46 @@
 "==============================================================================
-" ~/.vim/.vimrc.options
+" Options
 "------------------------------------------------------------------------------
-" Author: Erik Schreier
-" Date:   Jan. 24 2019
+" Author:  Erik Schreier
+" Version: 1.1 (Feb. 06 2019)
+" Path:    ~/.vim/.vimrc.options
+"------------------------------------------------------------------------------
+" + comments for better documentation
+" + disabled swapfile creation
+" + added systemclipboard support
+" + moved -laststatus- from .vimrc.surface
+"------------------------------------------------------------------------------
+" optional settings:
+" This options may slow down vim (there many reports for different machines)
+" so they're disabled by default, use them with care!
+"
+"  - relativenumbers  -- show the linenumbers relative to the current cursor
+"                        position, it may helps for movement in some files.
+"  - cursorline       -- highlights the current line like many other editors
+"                        do by default. read the helpfile :help cursorline
+"                        for troubleshooting.
 "==============================================================================
-filetype plugin on
-filetype indent on
-set encoding=utf-8
-set re=1
-
-syntax on
-
-set number
-
-set splitbelow
-set splitright
-
-set foldmethod=indent
-set foldlevel=99
-
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-
+"
+syntax on                                        " enable code highlighting
+filetype plugin on                               " filetype speciffic plugins
+filetype indent on                               " filetype speciffic indent
+set encoding=utf-8                               " use utf-8 font-encoding
+set number                                       " enable linenumbers
+"set relativenumber                               " numbers relative to cursor
+"set cursorline                                   " highlight current line
+set splitright                                   " :vs opens buffer right
+set splitbelow                                   " :sp opens buffer bottom
+set hlsearch                                     " highlight all matches
+set incsearch                                    " show all 
+set ignorecase                                   " ignore case sensitive
+set smartcase                                    " 
+set foldmethod=indent                            " indent folded blocks
+set foldlevel=99                                 " depth of indentation
+set clipboard=unnamed                            " use system clipboard
+set laststatus=2                                 " always show statusbar
+set noswapfile                                   " dont create swapfile
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/*
-
-"------------------------------
-let g:SimpylFold_docstring_preview=1
-
-let python_highlight_all=1
-let java_highlight_all=1
+let g:SimpylFold_docstring_preview=1             " show docstring for folded
+let python_highlight_all=1                       " better highlights for py
+let java_highlight_all=1                         " better highlights for java

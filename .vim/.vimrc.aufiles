@@ -1,8 +1,41 @@
 "==============================================================================
-" ~/.vim/.vimrc.aufiles
+" Autocommands
 "------------------------------------------------------------------------------
-" Author: Erik Schreier
-" Date:   Jan. 24 2019
+" Author:  Erik Schreier
+" Version: 1.1 (Feb. 06 2019)
+" Path:    ~/.vim/.vimrc.aufiles
+"------------------------------------------------------------------------------
+" ! If youre not on an unix based System change the ff variables to your
+" system defaults !
+"
+" To add other languages to the autocommands of indentation etc just add the
+" *.fileextension separated behind *.py or *.rb. To add another setup just
+" copy/paste one of the lines and modify it for your needs.
+"
+" The <F9> command to start the interpreter inside vim only works for
+" interpreted Languages, you have to use a Vim version with support for them.
 "==============================================================================
-au BufNewFile,BufRead *.py,*.cpp,*.c,*.h,*.java set ts=4 sts=4 sw=4 tw=79 et ai ff=unix
-au BufNewFile,BufRead *.rb,*js,*.html,*.css,*.tmux*,*.vimrc* set ts=4 sts=4 sw=4 tw=79 et ai ff=unix
+" display trailing whitespaces and tabs for indents in red to avoid problems
+"
+highlight BadWhitespace ctermbg=red guibg=red
+au BufNewFile,BufRead *.py,*.rb match BadWhitespace /^\t\+/
+au BufNewFile,BufRead *.py,*.rb match BadWhitespace /\s\+$/
+
+" indentation and other settings for python and ruby (you can add other types)
+"
+" ts  = x -- where x is the number of characters for tabwidth
+" sts = x -- where x is the number of single characters of a tab
+" sw  = x -- where x is the number of characters for a single tab
+" tw  = x -- where x is the number of max characters for a single line
+" cc  = x -- highlights the end of a line (+1 = cc + 1)
+" et & ai -- let vim use the previous indent for a new line
+" ff  = x -- where x is the default for your operating system
+"
+au BufNewFile,BufRead *.py set ts=4 sts=4 sw=4 tw=79 cc=+1 et ai ff=unix
+au BufNewFile,BufRead *.rb set ts=2 sts=2 sw=2 tw=79 cc=+1 et ai ff=unix
+
+" F9 inside a Python buffer starts it inside the python3 interpreter
+" F9 inside a Ruby   buffer starts it inside the ruby    interpreter
+"
+au BufNewFile,BufRead *.py nnoremap <F9> :w !python3<cr>
+au BufNewFile,BufRead *.rb nnoremap <F9> :w !ruby<cr>
