@@ -1,14 +1,21 @@
 #==============================================================================
-# ~/.tmux/.tmux.conf.options
+# Options
 #------------------------------------------------------------------------------
-# Author: Erik Schreier
-# Date:   Jan. 24 2019
+# Author:  Erik Schreier
+# Version: 1.1 (Feb. 06 2019)
+# Path:    ~/.tmux/.tmux.conf.options
+#------------------------------------------------------------------------------
+# Changes in 1.1:
+# + comments for better documentation
+#------------------------------------------------------------------------------
+# If you have trouble with colors inside of tmux check echo $TERM and may
+# modify the first line of the script to fit for your terminal. (Mac OS)
 #==============================================================================
-set -g default-terminal "xterm-256color"
-set -g escape-time 10
-set -g status-interval 10
-set -g mouse on
-set-option -g allow-rename off 
-set -g renumber-windows on 
-set -g base-index 1
-setw -g pane-base-index 1
+set -g default-terminal "xterm-256color" # enable 256 color support for tmux
+set -g escape-time 10                    # better response in vim (<ESC>)
+set -g status-interval 10                # update statusbar every 10 seconds
+set -g mouse on                          # scroll up and down using mouse
+set-option -g allow-rename off           # dont rename terminal statusbar
+set -g renumber-windows on               # shift windows after closing one
+set -g base-index 1                      # 0 is pretty far away from 1 
+setw -g pane-base-index 1                # same for the panes

@@ -1,30 +1,46 @@
 #==============================================================================
-# ~/.tmux/.tmux.conf.keymaps
+# Keymaps
 #------------------------------------------------------------------------------
-# Author: Erik Schreier
-# Date:   Jan. 24 2019
+# Author:  Erik Schreier
+# Version: 1.1 (Feb. 06 2019)
+# Path:    ~/.tmux/.tmux.conf.keymaps
+#------------------------------------------------------------------------------
+# Changes in 1.1:
+# + comments for better documentation
 #==============================================================================
+# reload config with <Strg> + <Space>
+#
 bind r source-file ~/.tmux.conf 
 
+# use <Strg> + <Space> instead of <Strg> + <b> as prefix
+#
 unbind C-b
 set-option -g prefix C-Space
 bind-key C-Space send-prefix
 
+# split windows with | and _ instead of % and "
+#
 unbind '"'
 unbind %
 bind | split-window -h -c "#{pane_current_path}"
 bind _ split-window -v -c "#{pane_current_path}"
 
+# switch panes by pressing <Alt> + <h...l>
+#
 bind -n M-h select-pane -L
 bind -n M-j select-pane -D
 bind -n M-k select-pane -U
 bind -n M-l select-pane -R
 
+# resize panes by pressing <Alt> + <Arrow>
+#
 bind -n M-Left  resize-pane -L 5
 bind -n M-Down  resize-pane -D 5
 bind -n M-Up    resize-pane -U 5
 bind -n M-Right resize-pane -R 5
 
+# switch windows by pressing <Alt> + <1...9>
+#
 bind -n M-1 select-window -t 1
 bind -n M-2 select-window -t 2
 bind -n M-3 select-window -t 3
