@@ -1,18 +1,52 @@
-<a href="http://tinypic.com?ref=30cpu9f" target="_blank"><img src="http://i65.tinypic.com/30cpu9f.png" border="0" alt="Image and video hosting by TinyPic"></a>
+<a href="http://tinypic.com?ref=2wdy975" target="_blank"><img src="http://i65.tinypic.com/2wdy975.png" border="0" alt="Image and video hosting by TinyPic"></a>
 
-Its just a basic but well designed compilation of themes and settings for vim/tmux/zsh, its perfect for longer codingsessions in any 256 Color terminal. There are no special characters or escapes so it should work in any unix or macos terminal.
+## How to install:
 
-To use the Vim and Zsh Part you will need to download the Repos for .oh-my-zsh and Vundle.
+if not already done install git, zsh, tmux and vim:
+    >> sudo apt-get install git zsh tmux vim
 
-https://github.com/robbyrussell/oh-my-zsh
-https://github.com/VundleVim/Vundle.vim
+install oh-my-zsh and Vundle by following these steps
+    https://github.com/robbyrussell/oh-my-zsh
+    https://github.com/VundleVim/Vundle.vim
 
-The Plugins chosen for Vim are very basic, including some new functions (NERDTree) a colorscheme (PaperColor) and some nice Plugins for genearal Coding in any Language (syntastic etc.) The Statusbar is part of the .vimrc.surface file and works withouth plugins thats cause most of the Plugins for statusbars are laggy.
+clone my repo into your home folder
+    >> cd ~
+    >> git clone https://github.com/erikschreier/PaperColor-themes
 
-Keybind imporvements: STRG + h, j, k, l to move between splits inside of vim, j + j to leave insert-mode, Space + Return to disable search highlights.
+backup your existing .tmux.conf and .vimrc file
+    >> mkdir backup
+    >> mv .vimrc .tmux.conf ~/backup
 
-The tmux theme works withouth any plugins, the colors are aliased at the beginning of the .tmux.conf.surface file so you can easyly add other funktions to the statusbar.
+copy the files now into your home folder
+    >> cd PaperColor-themes
+    >> cp -r .vimrc .vim .tmux.conf .tmux .oh-my-zsh ~/
 
-Keybind improvements: ALT + h, j, k, l to move between slits inside of tmux, ALT + 1 .. 9 to switch between windows, ALT + Arrow keys to resize splits
+install the plugins for vim (ignore the errors)
+    >> vim +PluginInstall
 
-The zsh theme is very basic but fits nice into the tmux window, it uses the PaperColor colors as well. It supports a indocator to highlight errors and a basical git status to see dirty, clean status and the git branch name.
+change the theme in your .zshrc and add some aliasses at the bottom
+    >> vim ~/.zshrc
+
+    ...
+    ZSH_THEME="warlord"
+    ...
+    *#alias ohmyzsh="mate ~/.oh-my-zsh"*
+    **alias tmux-n="tmux -2 new -s"**
+    **alias tmux-o="tmux -2 attach -t"**
+    **alias tmux-k="tmux kill-session -t"**
+    
+Restart your terminal after the installation and you should see the zsh prompt (if not restart your System).
+Follow the crashcourse in the screenshot to learn how to use tmux and get familiar with the setup.
+
+## Troubleshooting
+
+### tmux shows weird colors:
+inside your terminal (not in tmux) run '''**echo $TERM**''' to find out your terminal emulator and modify the first line of the ~/.tmux/.tmux.conf.options file to fit your setup (may you have to use google for the correct setting). If that not works then make sure you added the -2 in the alias section of your ~/.zshrc to force tmux to start in truecolor mode.
+
+### Shell is still Bash
+Run '''**chsh**'' inside your terminal, enter /bin/zsh and restart your terminal.
+
+### Vim uses unix as fileformat on my Mac
+Open the file ~/.vim/.vimrc.aufiles and change the encoding in line 36 and 37.
+
+#### Enjoy the theme and feel free to modify.
