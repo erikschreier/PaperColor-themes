@@ -11,6 +11,10 @@ install oh-my-zsh and Vundle by following these steps
     https://github.com/robbyrussell/oh-my-zsh
     https://github.com/VundleVim/Vundle.vim
 
+setup a patched font if you want to use **tmux.surface v1.2**
+
+    https://github.com/powerline/fonts
+
 clone my repo into your home folder
 
     $ cd ~
@@ -37,13 +41,14 @@ change the theme in your *.zshrc* and **add** some **aliasses** at the bottom
     ...
     ZSH_THEME="warlord"
     ...
-    *#alias ohmyzsh="mate ~/.oh-my-zsh"*
-    **alias tmux-n="tmux -2 new -s"**
-    **alias tmux-o="tmux -2 attach -t"**
-    **alias tmux-k="tmux kill-session -t"**
-    
+    #alias ohmyzsh="mate ~/.oh-my-zsh"
+    alias tmux-n="tmux -2 new -s"
+    alias tmux-o="tmux -2 attach -t"
+    alias tmux-k="tmux kill-session -t"
+
 Restart your terminal after the installation and you should see the zsh prompt (if not restart your System).
 Follow the **crashcourse** in the **screenshot** to learn how to use tmux and get familiar with the setup.
+To use the powerline theme just copy and rename the *.tmux/.tmux.conf.surface_powerline* file or rewrite the *.tmux.conf* to use it. Remember you have to use a powerline patched fonts (if not yo'll see weird glyphs in the statusbar.)
 
 ### Troubleshooting
 

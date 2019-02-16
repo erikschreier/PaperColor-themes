@@ -1,0 +1,93 @@
+#==============================================================================
+# Colorscheme
+#------------------------------------------------------------------------------
+# Author:  Erik Schreier
+# Version: 1.2 (Feb. 16 2019)
+# Path:    ~/.tmux/.tmux.conf.surface
+#------------------------------------------------------------------------------
+# Changes in 1.1:
+# + comments for better documentation
+# + color correction:
+#   ~ passive window now uses orange(208) instead of yellow(218)
+#------------------------------------------------------------------------------
+# Changes in 1.2:
+# + added powerline style for statusbar
+# ! REQUIRE: powerline patched fonts
+#==============================================================================
+# separator characters
+#
+ArRt=""
+ArLt=""
+
+# separators left side
+#
+LbLt="#[fg=colour236,bg=colour234]$ArRt"
+OmLs="#[fg=colour234,bg=colour208]$ArRt"
+OmRs="#[fg=colour208,bg=colour236]$ArRt"
+GmLs="#[fg=colour234,bg=colour148]$ArRt"
+GmRs="#[fg=colour148,bg=colour236]$ArRt"
+AqLs="#[fg=colour234,bg=colour037]$ArRt"
+AqRs="#[fg=colour037,bg=colour234]$ArRt"
+
+# separators right side
+#
+LbRt="#[fg=colour236,bg=colour234]$ArLt"
+YmLs="#[fg=colour214,bg=colour236]$ArLt"
+YmRs="#[fg=colour234,bg=colour214]$ArLt"
+PmLs="#[fg=colour205,bg=colour236]$ArLt"
+PmRs="#[fg=colour234,bg=colour205]$ArLt"
+
+# colors for marker labels (colored bg, black fg)
+#
+MkOr="#[fg=colour234,bg=colour208,bold]"
+MkGn="#[fg=colour234,bg=colour148,bold]"
+MkYe="#[fg=colour234,bg=colour214,bold]"
+MkBl="#[fg=colour234,bg=colour074,bold]"
+MkPu="#[fg=colour234,bg=colour205,bold]"
+MkAq="#[fg=colour234,bg=colour037,bold]"
+
+# colors for status labels (colored fg, black bg)
+#
+LbOr="#[fg=colour208,bg=colour236,nobold]"
+LbGn="#[fg=colour148,bg=colour236,nobold]"
+LbYe="#[fg=colour214,bg=colour236,nobold]"
+LbBl="#[fg=colour074,bg=colour236,nobold]"
+LbPu="#[fg=colour205,bg=colour236,nobold]"
+LbAq="#[fg=colour037,bg=colour236,nobold]"
+
+# left side of the statusbar
+#
+StLt="$AqLs$MkAq #S $AqRs"                            # session name
+WnSC="$GmLs$MkGn #I $GmRs$LbGn #W#F $LbLt"            # active window
+WnSt="$OmLs$MkOr #I $OmRs$LbOr #W#F $LbLt"            # passive window
+
+# right side of the statusbar
+#
+DtTm="$LbRt$LbYe %a %-d. %B %Y $YmLs$MkYe %H:%M $YmRs"# date     | time
+HsWh="$LbRt$LbPu #h $PmLs$MkPu #(whoami) $PmRs"       # hostname | username
+StRt="$DtTm$HsWh"                                     # build right side
+
+# statusbar settings
+#
+set -g pane-active-border-bg default                  # we dont want to see
+set -g pane-active-border-fg colour148                # border for splits a
+set -g pane-border-bg default                         # we dont want to see
+set -g pane-border-fg colour214                       # border for splits p
+set -g message-fg colour148                           # messagebar fg
+set -g message-bg colour234                           # messagebar bg
+set -g status-justify left                            # place window list left
+set -g status-bg colour234                            # statusbar itself
+set -g status-fg colour000                            # statusbar itself
+
+# print left side of the statusbar
+#
+setw -g status-left-length 10                         # max len of sessionname
+setw -g status-left $StLt                             # sessionname
+setw -g window-status-separator ""                    # space between windows
+setw -g window-status-current-format $WnSC            # active window status
+setw -g window-status-format $WnSt                    # passive windows status
+
+# print right side of the statusbar
+#
+set -g status-right-length 100                        # max len of the info
+set -g status-right $StRt                             # date|time - host|user
