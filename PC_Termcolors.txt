@@ -1,0 +1,16 @@
+#==============================================================================
+# Just change the Colors in your terminal to match dark PC Theme
+#==============================================================================
+
+C00 + C08 = #1C1C1C (234)
+C01 + C09 = #FF8700 (208)
+C02 + C10 = #AFD700 (148)
+C03 + C11 = #FFAF00 (214)
+C04 + C12 = #5FAFD7 (074)
+C05 + C13 = #FF5FAF (205)
+C06 + C14 = #00AFAF (037)
+C07 + C15 = #C6C6C6 (251)
+
+For BG and FG color you can use whatever feels best for you, if you dont
+want to use the transparent BG Option of PaperColor Vim you have to use
+#1C1C1C for BG to match C00.
