@@ -42,12 +42,12 @@ StRt="$DtTm$HsWh"                                     # build right side
 
 # statusbar settings
 #
-set -g pane-active-border-bg default                  # we dont want to see
-set -g pane-active-border-fg colour148                # border for splits a
-set -g pane-border-bg default                         # we dont want to see
-set -g pane-border-fg colour214                       # border for splits p
-set -g message-fg colour148                           # messagebar fg
-set -g message-bg colour234                           # messagebar bg
+set -g pane-active-border-style bg=default            # we dont want to see
+set -g pane-active-border-style fg=colour148          # border for splits a
+set -g pane-border-style bg=default                   # we dont want to see
+set -g pane-border-style fg=colour214                 # border for splits p
+set -g message-style fg=colour148                     # messagebar fg
+set -g message-style bg=colour234                     # messagebar bg
 set -g status-justify left                            # place window list left
 set -g status-bg colour234                            # statusbar itself
 set -g status-fg colour000                            # statusbar itself
